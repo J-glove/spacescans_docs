@@ -1,0 +1,29 @@
+# Overview
+The SPACESCANS Exposome Linkage Pipeline links zip-code level address data (currently 9-digit zip-code) with variou exposome data sources (e.g. WI, NATA, CACES, HUD) based on time windows for each patient. The pipeline automatically produces time-weighted averages of exposome exposures over yearly, quarterly, or monthly intervals depending on the temporal resolution of the exposome data. 
+
+## The Linkage Logic:
+1. __Select the Exposome Type__:
+
+    Users can specify which exposome dataset to use (e.g., WI, NATA, CACES, HUD, etc.), as well as the specific variables (headers) of interest. If no variables are specified, the pipeline will link all variables under the selected exposome type.
+
+2. __Match Patient Data to Exposome Data__:
+
+
+    Matching between patient and exposome data is performed based on:
+    - Exact match of the 9-digit zip-code.
+    - Overlapping time periods between patient and residence (ADDRESS_PERIOD_START to ADDRESS_PERIOD_END) and exposome data (by YEAR, MONTH, or QUARTER)
+
+3. __Time Weight Calculation__:
+
+    Each overlapping time period is assigned a weight based on the number of days the patient resided in that period. The final exposure value is computed as a time-weighted average:
+
+    ```math
+    \text{Exposure} = \frac{\sum (\text{value} \times \text{days})}{\sum \text{days}}
+    ```
+
+4. __Output Format__:
+
+    The output is a `.csv` file which includes each distinct PATID in the input dataset and the time-weighted average values for the selected exposomes.
+
+
+## Input and Output Specifications

@@ -1,0 +1,24 @@
+## Buffer Creation
+Different exposomes use varying catographic boundary mappings. To align with these sources, we create buffer files that map 9-digit ZIP codes (used by the address history) to the geographic standards of the exposome data.
+
+### Input Files
+- __9-digit Zip-code Latitude/Longitude Data__:
+
+    Derived from the OneFlorida+ database. This dataset provides 9-digit zip-code data with integrated longitudinal and latitudinal coordinates and is updated regularly.
+    
+    - __Example Columns__:
+
+        - AREAKEY
+        - CT
+        - X (longitude)
+        - Y (latitude)
+
+- __Shape Files__:
+
+    Include County, ZCTA, Census Tract, and Block Group shape files downloaded from the US Census site (currently TIGER2010).
+
+### Output File Specifications
+The output file from buffer generation is a .csv, with UPPERCASE column names and a prefix for zip-code columns (ZIP_5 or ZIP_9)
+
+### Command Line Interface
+TBD

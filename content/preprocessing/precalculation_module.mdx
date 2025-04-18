@@ -1,0 +1,31 @@
+## Precalculation Module 
+The precalculation module uses the pre-generated buffer files to compute area-weighted averages for each exposome variable at the ZIP code level. This conversion is necessary because the raw exposome data is typically reported in other geographic formats (e.g., FIPS codes).
+
+### Input Format
+- __Formatted Exposome Data__:
+
+    Processed data with standardized headers and geographic identifiers.
+
+- __Buffer File__:
+
+    Generated in the previous step, mapping the raw geographic units to zip-code
+
+### Output File Specifications
+The output is a .csv file with all column names in UPPERCASE, with a standardized geoidentifier and temporal naming convention regardless of datasource. (e.g. ZIP_9, YEAR, QUARTER)
+
+
+### Command Line Interface
+TBD
+
+### Guidelines for Implementing Formatters
+- __Consistency__:
+
+    Ensure that all output files adhere strictly to the standards. Each file must have properly capitalized headers that accurately reflect the content.
+
+- __Reference Documentation__:
+
+    The output should conform to the Exposome SQLite Database Specification.
+
+- __Verification__:
+
+    Validate that all column headers are correct, and that the data aligns with the expected formats (e.g. geo-identifier and time units).

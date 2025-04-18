@@ -1,0 +1,23 @@
+# Overview
+This documentation hub gives an in depth breakdown of the SPACESCANS Project, its various components, and the motivation for design.
+This documentation is provided to aid in development and generally not intended to be user-facing.
+
+## Introduction
+The SPACESCANS project is an r24 funded software project which aims to provide convenient tools for carrying out the task of linking historical patient data to exernal variables, called exposomes.
+The project consists of three primary modules for allowing users to link patient data to exposomes: a Python library, a website, and a command line tool.
+
+### Python library
+At the core of the entire project is the Python library. The motivation is to provide users with an easy to install package that would allow for
+full customization of the tooling to implement into their own data pipelines. The end goal is for this library to be `pip` installable and
+the design of the website and command line interface components hinges on importing this library like a `pip` package. This should make
+future version controll easier as updates to the linkage library would just require an update through `pip` rather than importing the updated
+package manually. The library contains the core functionality for linkage, preprocessing, address cleaning, and validation. 
+The intention is for the library to contain all the functionality needed to perform linkage, while the website and command line interface
+provide wrapper code to actually run linkage smoothly and conveniently.
+
+### Website
+The website provides an easy to use graphical user interface for non-technical users and allows users to easily link against the datasets we have available.
+This method additionally allows users to leverage our computing power, which is helpful for smaller teams who may not have access to pwoerful servers. 
+The wesbite additionally provides a data catalog, which is being developed in conjunction with Dr. Cui Tao and her team at Mayo Clinic Jacksonville.
+
+### Command Line Interface
