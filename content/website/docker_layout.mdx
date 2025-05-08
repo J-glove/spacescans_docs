@@ -1,0 +1,25 @@
+# Docker Container Layout 
+The website runs on a docker network comprised of various containers which all have different functions. These specifics
+for the containers can be found in the `docker_compose.yml`.
+
+## Frontend
+Hosts the user-facing part of the website, where the user can manage linkages tasks and results. 
+
+## Backend
+Handles the server-side logic of the application. It processes requests from the frontend, retrieves data from the database,
+applies features including exposome linkage, and sends the responses back to the frontend.
+
+## Nginx
+Serves as a reverse proxy that manages incoming tradffic and directing it to the appropriate sevice.
+
+## Worker
+Handles background jobs and asynchronous tasks of exposome linkage using Celery.
+
+## Flower
+Web-based tool for monitoring and administrating Celery clusters. 
+
+## Neo4j
+Runs the Neo4j knowledge graph database.
+
+## Docs 
+Hosts the documentation for the website using Nextra v4.

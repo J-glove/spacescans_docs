@@ -1,0 +1,16 @@
+# Linkage
+The design for linkage itself was previously done by translating from expsoome source geoidentifier to ZIP9 at runtime. This
+was extremely costly and meant that calculations were being repeated often. For example, if `PAT_1` and `PAT_2` both lived in zipcode 123456789
+in the year 2016, then the translation for 123456789 would be done twice for an exposome. Clearly, this calculation does not depend on the patient
+data itself, but rather the zipcode. 
+
+A more efficient way to handle this issue at runtime is to calculate these translations once, ahead of time. This means more computation upfront,
+but less time spent during linkage. To this end, we decided to implement a `preprocessing pipeline` which takes raw exposomes and translates them to
+9-digit zipcode, which is then stored in a database that can be queried during linkage.
+
+This works well and cuts down the linkage time from days or weeks to minutes. The only caveat to this implementation is that it is not easy to make
+this versatile. With the desire for users to "bring their own data", as mentioned in the R24, there still needs to be an option to do this translation at
+runtime. This has yet to be implemented. 
+
+We additionally want to be able to generalize the preprocessing pipeline so that users can run it on their own data, not just for the exposome
+data specific to us. 

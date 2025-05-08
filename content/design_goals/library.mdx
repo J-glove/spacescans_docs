@@ -1,1 +1,17 @@
 # Library
+The library functions as the core of the project. Within the library is all of the necessary code to perform linkage,
+clean patient datasets, and run preprocessing tasks. The library is structured to operate as a `pip` installable library
+to allow for easy portability. The initial work for setting the library up to be a `pip` package has been done by Chengrong.
+Because of this structure, development with the library should be treated as if developing with a `pip` package. This means
+that thought should go into how the scripts are structured, and how everything is named. For example, to import the linkage function,
+we would want the syntax to be:
+    ```
+    from spacescans.linkage import link
+    ```
+
+
+The current naming and layout could perhaps be streamlined in the future. Other than this, additions to the library should
+contain only code which is essential to the linkage and preprocessing process. 
+
+The library only provides the functionality for the linkage and preprocessing processes. It cannot run these processes by itself.
+Any code written for the purposes of running preprocessing or linkage should **NOT** be added to the library.

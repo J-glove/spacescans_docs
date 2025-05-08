@@ -1,1 +1,57 @@
 # Running Linkage from the Command Line
+
+### Installation
+
+1. Clone the repo to your local directory
+2. In the root of the repo, create a `projects` folder and an `output` folder
+
+        ```
+        mkdir projects
+        mkdir output
+        ```
+
+### Configuring
+The command line needs to be updated to point to the available database. In your favorite code editor, open `run_spacescans.py`.
+Navigate to line 30 and update the `DB_URL` to the absolute path of the db file.  
+### Running the Command Line
+The command line interface uses projects to store information about a specific run of linkage. In order to get started running linkage, a user must create a project. The project can then be used to run linkage. 
+
+#### 1. create_project
+Allows the user to create a new project. In addition to specifying a name, you can add all necessary metadata when calling the command, otherwise the program will prompt you to enter any metadata that was missed
+
+*Accepted Flags*
+- `-p`: The name of the project
+- `-s`: Start date of the study period in YYYY-MM-DD format
+- `-e`: End date of the study period in YYYY-MM-DD format
+- `-g`: The geoidentifier used in the patient dataset (9-digit zipcode, 5-digit zipcode, etc)
+- `-f`: The location of your patient dataset
+- `-h`: Help.
+
+*Syntax*
+
+    ```
+    $ python3 run_spacescans.py create_project [-h] [-p PROJECT_NAME] [-s START_DATE] [-e END_DATE] [-g GEOID] [-f FILEPATH]
+    ```
+#### 2. link
+Allows the user to run linkage using a specified project name
+
+*Accepted Flags*
+- `-p`: The name of the project
+- `-h`: Help.
+
+*Syntax*
+
+    ```
+    $ python3 run_spacescans.py link [-h] [-p PROJECT_NAME]
+    ```
+
+#### 3. show
+Queries the database file and outputs the available data sources and variables.
+
+*Syntax*
+
+    ```
+    $ python3 run_spacescans.py show
+    ```
+
+    

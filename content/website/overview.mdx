@@ -1,0 +1,23 @@
+# Overview
+The main purpose of the website is to provide linkage in a graphical user interface which is convenient to use and runs 
+on our hardware instead of the researcher's hardware. In addition to performing linkage, the website also serves as a hub
+for all information regarding the project as a whole. This includes the data catalog, which gives information about every
+variable available in our database, has download and installation instructions for the command line interface and library, and
+provides documentation for the whole process.
+
+The website is currently using an older version of the linkage library to be able to perform linkage. Some work needs to be done to update
+the linkage package for the website.
+
+### Performing Linkage
+Linkage on the website is locked behind an account system. Users can only perform linkage by first creating an account.
+Once logged in, users are given a dashboard which provides an overview of all linkage runs tied to the account. These runs
+are called `tasks` in the UI. For each task, the dashboard gives a status, such as `RUNNING`, and provides the user with
+various actions, such as pausing or cancelling a task. If the task is currently running, a progess bar indicates how far along
+the task is in the linkage process.
+
+### Task Creation
+From the dashboard, users can navigate to the `Create a Task` page which allows users to upload deidentified patient data
+and input the necessary information for performing linkage. This is also where the desired variables to link against are chosen.
+
+### Results 
+From the dashboard, users can navigate to a results overview page which shows all tasks which have completed and are ready for download.
